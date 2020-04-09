@@ -23,6 +23,7 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
   test "now" do
     puts 'nothing'
+    
 
   end
 
