@@ -39,7 +39,13 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
     get root_url
     assert_response :success
-    
+
   end
+
+  test "confirm root text" do
+    get root_url
+    assert_select 'a', text: 'Ruby on Rails Tutorial'
+  end
+  
 
 end
