@@ -45,12 +45,6 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
     
   }
-  
-
-
-  // img{
-  //     display: none;
-  // }
 
   /* footer */
 
@@ -58,7 +52,7 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $off-white;
-  color: #777;
+  color: $light-grey;
   &a{
     color: #555;
     &hover{
