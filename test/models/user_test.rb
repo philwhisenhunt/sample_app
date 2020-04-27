@@ -29,12 +29,6 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
-
-  test "email should not be too short" do
-    @user.email = "b" * 2 + "@example.com"
-    assert_not @user.valid?
-  end
-
   test "email validation should accept valid addresses" do 
     valid_addresses = %w[user@example.com USER@foo.COM A-US-ER@foo.bar.org
                           first.last@foo.jp alice+bob@baz.cn]
@@ -60,10 +54,6 @@ class UserTest < ActiveSupport::TestCase
     assert_not duplicate_user.valid?
   end
 
-  test "email addresses shouldn't repeat" do
-    duplicate_user = @user.dup
-    @user.save
-    assert_not duplicate_user.valid?
-  end
+
 
 end
