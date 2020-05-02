@@ -19,6 +19,9 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   end
 
   test "Errors are visible upon signup" do
-
+    get signup_path
+    assert_select 'div#error_explanation'
+    assert_select 'div.alert'
+    assert_select 'div.field_with_errors'
   end
 end
