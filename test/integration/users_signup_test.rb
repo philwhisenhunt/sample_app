@@ -24,4 +24,13 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_select 'div.alert'
     assert_select 'div.field_with_errors'
   end
+
+
+  test "User should not be created" do
+    get signup_path
+    assert_no_difference 'User.count' do
+      post users_path, params: { user: { name: "",
+                                        email: "user@invalid",
+                                        password: "foo",
+                                        password_confirmation: "bar" }}
 end
