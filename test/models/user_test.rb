@@ -75,5 +75,9 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  test "footer should be visible" do
+    visit root_url
+    assert_link 'About'
+  end
 
 end
