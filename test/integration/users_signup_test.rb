@@ -37,6 +37,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
 
     test "valid signup information" do
         get signup_path
+    end
         
     assert_difference 'User.count', 1 do
      
@@ -51,6 +52,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_template 'users/show'
     assert_template 'users/new'
     assert_not flash.nil?
+    # take_screenshot
+
   end
 
 end
