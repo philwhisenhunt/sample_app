@@ -34,11 +34,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                         password: "foo",
                                         password_confirmation: "bar" }}
         # end
+        end
     end
 
     test "valid signup information" do
         get signup_path
-    
+   
         
     assert_difference 'User.count', 1 do
      
@@ -47,6 +48,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                       password: "password",
                                       password_confirmation: "password" } }
     end
+end
 
   
     follow_redirect!
