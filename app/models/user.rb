@@ -25,4 +25,7 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, User.digest(remember_token))
   end
 
+  def self.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrpyt::Engine::MIN_COST
+
 end
