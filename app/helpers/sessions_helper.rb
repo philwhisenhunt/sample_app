@@ -35,4 +35,24 @@ module SessionsHelper
     reset_session
     @current_user = nil
   end
+
+  def forget(user)
+    user.forget
+    cookies.delete(:user_id)
+    cookies.delete(:user_token)
+  end
+
+    # Logs out the current user.
+    def log_out
+      forget(current_user)
+      reset_session
+      @current_user = nil
+    end
+
+    # Logs out the current user.
+    def log_out
+      forget(current_user)
+      reset_session
+      @current_user = nil
+    end
 end
