@@ -14,4 +14,5 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                               password: "foo",
                                               password_confirmatino: "bar" } }
     assert_template 'users/edit'
+  end
 end
