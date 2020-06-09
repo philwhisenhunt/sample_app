@@ -16,6 +16,7 @@ module SessionsHelper
   def current_user
     if (user_id = session[:user_id])
       @current_user ||= User.find_by(id: user_id)
+      @current_user ||= user if session[:session_token] == user.session_token
     elsif (user_id = cookies.encrypted[:user_id])
       # raise #The tests still pass, so this branch is untested
       user = User.find_by(id: user_id)
