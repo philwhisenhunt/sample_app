@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     end
 
     #Before filters
-    
+
     #Confirms a logged in user
   
     def logged_in_user
