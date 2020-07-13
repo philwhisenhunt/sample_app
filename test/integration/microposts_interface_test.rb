@@ -24,7 +24,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
     log_in_as(@user)
     get root_path
     assert_select 'div.pagination'
-    assert_select 'input[type=image]'
+    assert_select 'input[type=file]'
 
     #Invalid submission
     assert_no_difference 'Micropost.count' do
@@ -39,7 +39,7 @@ class MicropostsInterfaceTest < ActionDispatch::IntegrationTest
       post microposts_path, params: { micropost: 
                                       {  content: content, image: image }}
     end
-    assert micropost.image.attached?
+    assert assigns(:micropost).image.attached?
     follow_redirect!
     assert_match content, response.body
     # Delete a post
