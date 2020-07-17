@@ -86,7 +86,8 @@ class User < ApplicationRecord
   end
 
   def feed
-    Micropost.where("user_id IN (?) OR user_id = ?", following_ids, id)
+    Micropost.where("user_id IN (:following_ids) OR user_id = :user_id",
+    following_ids: following_ids, user_id: id)
   end
 
   #Follows a user.
@@ -103,6 +104,8 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+
+
 
   private 
   #Converts an email to all downcase
